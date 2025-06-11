@@ -21,12 +21,32 @@ Constraints:
 
 ### Code:
 ```java
-Input: prices[] = [100, 180, 260, 310, 40, 535, 695]
-Output: 865
-Explanation: Buy the stock on day 0 and sell it on day 3 => 310 – 100 = 210. Buy the stock on day 4 and sell it on day 6 => 695 – 40 = 655. Maximum Profit = 210 + 655 = 865.
 
 
-Input: prices[] = [4, 2, 2, 2, 4]
-Output: 2
-Explanation: Buy the stock on day 3 and sell it on day 4 => 4 – 2 = 2. Maximum Profit = 2.
+// User function Template for Java
+class Solution {
+    public int maximumProfit(int prices[]) 
+    {
+        
+        int n=prices.length,i=0;
+        int lmax=prices[0];
+        int lmin=prices[0];
+        int res=0;
+        while(i<n-1)
+        {
+            while(i<n-1 && prices[i] >= prices[i+1])
+            {
+                i++;
+            }
+            lmin=prices[i];
+            while(i<n-1 && prices[i] <= prices[i+1])
+            {
+                i++;
+            }
+            lmax=prices[i];
+            res+=lmax-lmin;
+        }
+        return res;
+    }
+}
 ```
