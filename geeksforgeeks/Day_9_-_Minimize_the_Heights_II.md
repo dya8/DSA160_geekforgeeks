@@ -30,8 +30,33 @@ Constraints
 
 ### Code:
 ```java
-Input: k = 2, arr[] = {1, 5, 8, 10}
-Output: 5
-Explanation: The array can be modified as {1+k, 5-k, 8-k, 10-k} = {3, 3, 6, 8}.The difference between the largest and the smallest is 8-3 = 5.
+
+
+// User function Template for Java
+
+class Solution
+{
+    int getMinDiff(int[] arr, int k)
+    {
+        Arrays.sort(arr);
+        int n=arr.length;
+        int sml=arr[0]+k;
+        int lar=arr[n-1]-k;
+        int min=0;
+        int max=0;
+        int ans=arr[n-1]-arr[0];
+        for(int i=0;i<n-1;i++)
+        {
+            min=Math.min(sml,arr[i+1]-k);
+            max=Math.max(lar,arr[i]+k);
+            if(min <0)
+            continue;
+            ans=Math.min(ans,max-min);
+            
+            
+        }
+        return ans;
+    }
+}
 
 ```
