@@ -21,7 +21,35 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [8, -8, 9, -9, 10, -11, 12]
-Output: 22
-Explanation: Starting from the last element of the array, i.e, 12, and moving in a circular fashion, we have max subarray as 12, 8, -8, 9, -9, 10, which gives maximum sum as 22.
+
+
+class Solution {
+
+    // a: input array
+    // n: size of array
+    // Function to find maximum circular subarray sum.
+    public int circularSubarraySum(int arr[]) 
+    {
+        int totalSum=0,currMaxSum=0,currMinSum=0,minsum=arr[0],maxsum=arr[0];
+        int normalsum=0,n,i,circularsum=0;
+        n=arr.length;
+        for(i=0;i<n;i++)
+        {
+            currMaxSum=Math.max(currMaxSum +arr[i],arr[i]);
+             currMinSum=Math.min(currMinSum +arr[i],arr[i]);
+              maxsum=Math.max(maxsum,currMaxSum);
+               minsum=Math.min(minsum,currMinSum);
+               totalSum+=arr[i];
+            
+        }
+          normalsum=maxsum;
+          circularsum=totalSum-minsum;
+          if(minsum==totalSum)
+          return normalsum;
+          else
+          return Math.max(normalsum,circularsum);
+      
+    }
+}
+
 ```
