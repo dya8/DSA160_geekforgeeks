@@ -27,10 +27,6 @@ Constraints:
 
 ### Code:
 ```java
-...// } Driver Code Ends
-
-
-// User function Template for Java
 
 class Solution {
     // Function to merge the arrays.
@@ -85,4 +81,7 @@ class Solution {
         if(gap<=1)
          return 0;
          return (gap/2)+(gap%2);
+    }
+}
+
 ```
