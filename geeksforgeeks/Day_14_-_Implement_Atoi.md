@@ -35,8 +35,37 @@ Constraints:
 
 ### Code:
 ```java
-Input: s = "-123"
-Output: -123
-Explanation: It is possible to convert -123 into an integer so we returned in the form of an integer
 
+
+class Solution {
+    public int myAtoi(String s) 
+    {
+        int sign=1,res=0,i=0;
+        while(i<s.length() && s.charAt(i)==' ')
+        i++;
+        s=s.substring(i);
+        if(s.charAt(0)=='+')
+        
+        {
+            sign=+1;
+            i++;
+            
+        }
+        else if(s.charAt(0)=='-')
+        
+        {
+            sign=-1;
+            i++;
+            
+        }
+         while(i<s.length() && s.charAt(i)>='0' &&s.charAt(i)<='9')
+         {
+             if(res>Integer.MAX_VALUE/10 || res>Integer.MAX_VALUE/10 && (s.charAt(i)-'0')>7)
+             return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+             res=res*10+(s.charAt(i++)-'0');
+         }
+         return res*sign;
+        
+    }
+}
 ```
