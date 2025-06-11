@@ -24,7 +24,35 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [1, 2, 3, 4, 5], d = 2
-Output: [3, 4, 5, 1, 2]
-Explanation: when rotated by 2 elements, it becomes 3 4 5 1 2.
+...// } Driver Code Ends
+
+
+// User function Template for Java
+
+class Solution {
+    // Function to rotate an array by d elements in counter-clockwise direction.
+    static void rotateArr(int arr[], int d) 
+    {
+        int n;
+        n=arr.length;
+        d=d%n;
+        rev(arr,0,d-1);
+        rev(arr,d,n-1);
+        rev(arr,0,n-1);
+       
+    }
+        static void rev(int arr[],int lp,int rp)
+        {
+            int temp;
+            while(lp<rp)
+            {
+                temp=arr[lp];
+                arr[lp]=arr[rp];
+                arr[rp]=temp;
+                lp++;
+                rp--;
+            }
+        }
+    
+}
 ```
