@@ -22,8 +22,24 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
-Output: [1, 2, 4, 3, 5, 0, 0, 0]
-Explanation: There are three 0s that are moved to the end.
 
+
+// User function Template for Java
+
+class Solution {
+    void pushZerosToEnd(int[] arr)
+    {
+        int c=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]!=0)
+            {
+                int temp=arr[i];
+                arr[i]=arr[c];
+                arr[c]=temp;
+                c++;
+            }
+        }
+    }
+}
 ```
