@@ -19,7 +19,37 @@ Constraint:
 
 ### Code:
 ```java
-Input: arr[] = [2, 1, 5, 5, 5, 5, 6, 6, 6, 6, 6]
-Output: [5, 6]
-Explanation: 5 and 6 occur more n/3 times.
+...// } Driver Code Ends
+
+
+class Solution {
+    // Function to find the majority elements in the array
+    public List<Integer> findMajority(int[] nums) 
+    {
+        List<Integer>ar=new ArrayList<>();
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        int n=nums.length;
+        for(int a:nums)
+        {
+            if(hm.containsKey(a))
+            
+                hm.put(a,hm.get(a)+1);
+            else
+                hm.put(a,1);
+            
+             
+        }
+       int a=n/3;
+            for(Map.Entry<Integer,Integer> entry:hm.entrySet())
+            {
+                if(entry.getValue()>a)
+                ar.add(entry.getKey());
+            }
+           return ar;
+        }
+         
+    }
+
+
+
 ```
