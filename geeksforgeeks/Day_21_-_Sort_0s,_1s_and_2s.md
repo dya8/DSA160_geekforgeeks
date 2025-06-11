@@ -21,7 +21,47 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [0, 1, 2, 0, 1, 2]
-Output: [0, 0, 1, 1, 2, 2]
-Explanation: 0s 1s and 2s are segregated into ascending order.
+...// } Driver Code Ends
+
+class Solution {
+    // Function to sort an array of 0s, 1s, and 2s
+    public void sort012(int[] arr)
+    {
+        
+       int n=arr.length;
+       int low=0;
+       int high=n-1;
+       int mid=0,temp=0;
+       while(mid<=high)
+       {
+           if(arr[mid] == 0)
+           {
+               swap(arr,mid,low);
+               low++;
+               mid++;
+           }
+           else if(arr[mid]==1)
+           mid++;
+           else
+           {
+               swap(arr,mid,high);
+               high--;
+           }
+       }
+       
+       
+        
+    }
+    static void swap(int[]a,int i, int j)
+    {
+      int temp=a[i];
+      a[i]=a[j];
+      a[j]=temp;
+    }
+    
+    
+    
+}
+
+...// } Driver Code Ends
 ```
