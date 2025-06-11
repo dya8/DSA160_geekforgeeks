@@ -23,7 +23,23 @@ Constraint:
 
 ### Code:
 ```java
-Input: prices[] = [7, 10, 1, 3, 6, 9, 2]
-Output: 8
-Explanation: You can buy the stock on day 2 at price = 1 and sell it on day 5 at price = 9. Hence, the profit is 8.
+
+
+// User function Template for Java
+
+class Solution
+{
+
+   
+    public int maximumProfit(int prices[])
+    {
+      int n=prices.length,res=0,min=prices[0];
+      for(int i=0;i<n;i++)
+      {
+          min=Math.min(min,prices[i]);
+          res=Math.max(res,prices[i]-min);
+      }
+      return res;
+    }
+}
 ```
