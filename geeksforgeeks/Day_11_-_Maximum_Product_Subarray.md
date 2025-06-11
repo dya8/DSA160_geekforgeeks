@@ -23,7 +23,35 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [-2, 6, -3, -10, 0, 2]
-Output: 180
-Explanation: The subarray with maximum product is {6, -3, -10} with product = 6 * (-3) * (-10) = 180.
+
+
+class Solution {
+    
+    int max(int a,int b,int c)
+    {
+        return Math.max(a,Math.max(b,c));
+    }
+     int min(int a,int b,int c)
+    {
+        return Math.min(a,Math.min(b,c));
+    }
+    // Function to find maximum product subarray
+    int maxProduct(int[] arr)
+    {
+        int n=arr.length;
+        int currMax=arr[0];
+        int currMin=arr[0];
+        int maxProd=arr[0];
+        int temp;
+        for(int i=1;i<n;i++)
+        {
+            temp=max(arr[i],arr[i]*currMax,arr[i]*currMin);
+            currMin=min(arr[i],arr[i]*currMax,arr[i]*currMin);
+            currMax=temp;
+            maxProd=Math.max(maxProd,currMax);
+            
+        }
+       return maxProd;
+    }
+}
 ```
