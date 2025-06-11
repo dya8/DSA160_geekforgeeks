@@ -22,7 +22,31 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr[] = [12, 35, 1, 10, 34, 1]
-Output: 34
-Explanation: The largest element of the array is 35 and the second largest element is 34.
+
+
+// User function Template for Java
+
+class Solution {
+    public int getSecondLargest(int[] arr) 
+    {
+        int secondlarge=-1;
+        int large =-1;
+        for(int num:arr)
+        {
+            if(num > large)
+            {
+                large=num;
+                
+            }
+        }
+        for(int num:arr)
+        {
+            if(num > secondlarge && num!= large )
+            {
+                secondlarge=num;
+            }
+        }
+        return secondlarge;
+    }
+}
 ```
