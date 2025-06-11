@@ -21,7 +21,23 @@ Constraints:
 
 ### Code:
 ```java
-Input: s = "geeksforgeeks"
-Output: 'f'
-Explanation: In the given string, 'f' is the first character in the string which does not repeat.
+
+
+class Solution {
+    static char nonRepeatingChar(String s) {
+        HashMap<Character,Integer> count=new HashMap<>();
+        for(char ch:s.toCharArray())
+        {
+            count.put(ch,count.getOrDefault(ch,0)+1);
+        }
+         for(char ch:s.toCharArray())
+        {
+           if(count.get(ch)==1)
+           return ch;
+        }
+        return '$';
+        
+    }
+}
+
 ```
