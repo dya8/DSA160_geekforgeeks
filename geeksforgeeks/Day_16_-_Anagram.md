@@ -22,7 +22,36 @@ Constraints:
 
 ### Code:
 ```java
-Input: s1 = "geeks", s2 = "kseeg"
-Output: true
-Explanation: Both the string have same characters with same frequency. So, they are anagrams.
+
+
+class Solution {
+    // Function is to check whether two strings are anagram of each other or not.
+    public static boolean areAnagrams(String s1, String s2)
+    {
+        HashMap<Character,Integer> count=new HashMap<>();
+        for(char ch:s1.toCharArray())
+        {
+            count.put(ch,count.getOrDefault(ch,0)+1);
+            
+        }
+         for(char ch:s2.toCharArray())
+        {
+            count.put(ch,count.getOrDefault(ch,0)-1);
+            
+        }
+         for( var pair:count.entrySet())
+         
+        {
+            if(pair.getValue()!=0)
+            {
+                return false;
+                
+            }
+        }
+        return true;
+    
+        
+
+    }
+}
 ```
