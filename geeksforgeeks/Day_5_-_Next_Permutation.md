@@ -23,7 +23,55 @@ Constraints:
 
 ### Code:
 ```java
-Input: arr = [2, 4, 1, 7, 5, 0]
-Output: [2, 4, 5, 0, 1, 7]
-Explanation: The next permutation of the given array is {2, 4, 5, 0, 1, 7}.
+
+// User function Template for Java
+
+class Solution {
+    void nextPermutation(int[] arr) 
+    {
+        int n=arr.length,pivot=-1,i;
+        for(i=n-2;i>=0;i--)
+        {
+            if(arr[i]<arr[i+1])
+            {
+                pivot=i;
+                break;
+                
+            }
+            
+        }
+        if(pivot == -1)
+        {
+            reverse(arr,0,n-1);
+            return;
+        }
+        for(i=n-1;i>pivot;i--)
+        {
+            if(arr[i] > arr[pivot])
+            {
+                swap(arr,i,pivot);
+                break;
+                
+            }
+            
+        }
+        reverse(arr,pivot+1,n-1);
+        
+    }
+    public static void reverse(int arr[],int start,int end)
+    {
+        while(start< end)
+        {
+            swap(arr,start++,end--);
+        }
+    }
+    public static void swap(int arr[],int i,int j)
+    {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+}
+
+
 ```
